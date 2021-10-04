@@ -9,8 +9,10 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        welcome('Darren')
-        calculator.add(25,25)
+        script {
+          welcome('Darren')
+          calculator.add(25,25)
+        }
         sh 'mvn package'
         }
     }
