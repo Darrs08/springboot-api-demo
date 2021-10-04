@@ -20,9 +20,8 @@ pipeline {
         stage("Build image") {
             steps {
                  script {
-                  calculator.multi(5,5)
-                    echo "Build image with tag: ${env.BUILD_ID}"
-                    myapp = docker.build("darrs08/ledger-service:${env.BUILD_ID}", "--build-arg VERSION=${env.BUILD_ID} .")
+                    calculator.multi(5,5)
+                    step.buildImage()
                 }
             }
         }
