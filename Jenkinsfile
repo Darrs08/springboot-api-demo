@@ -12,7 +12,7 @@ pipeline {
         script {
           welcome('Darren')
           calculator.add(25,25)
-          step.build()
+          mavenPackage()
         }
       }
     }
