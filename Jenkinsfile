@@ -21,6 +21,7 @@ pipeline {
             steps {
                  script {
                     calculator.multi(5,5)
+                    step.buildNum()
                     step.buildImage()
                 }
             }
