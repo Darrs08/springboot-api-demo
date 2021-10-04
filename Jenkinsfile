@@ -12,9 +12,9 @@ pipeline {
         script {
           welcome('Darren')
           calculator.add(25,25)
+          step.build()
         }
-        sh 'mvn package'
-        }
+      }
     }
     
         stage("Build image") {
