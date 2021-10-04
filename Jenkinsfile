@@ -17,8 +17,8 @@ pipeline {
     
         stage("Build image") {
             steps {
-              calculator.multi(5,5)
-                script {
+                 script {
+                  calculator.multi(5,5)
                     echo "Build image with tag: ${env.BUILD_ID}"
                     myapp = docker.build("darrs08/ledger-service:${env.BUILD_ID}", "--build-arg VERSION=${env.BUILD_ID} .")
                 }
