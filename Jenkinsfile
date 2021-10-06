@@ -7,20 +7,18 @@ pipeline {
   }
 
   stages {
-    stage('Build') {
-      steps {
-        script {
-          welcome('Darren')
-          calculator.add(25,25)
-          mavenPackage()
-        }
-      }
-    }
+        stage('Build') {
+           steps {
+              script {
+                  welcome('Darren')
+                  mavenPackage()
+               }
+           }
+       }
     
         stage("Build image") {
             steps {
                  script {
-                    calculator.multi(5,5)
                     step.buildNum()
                     step.buildImage('darrs08')
                 }
@@ -28,12 +26,12 @@ pipeline {
         }
     
 
-      stage("Push image") {
-        steps {
+        stage("Push image") {
+             steps {
                 script {
-                      step.pushImage('dockerhub')
-                    }
-               }
+                    step.pushImage('dockerhub')
+                  }
+              }
           }
      }
  }
