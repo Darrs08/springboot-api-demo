@@ -5,6 +5,9 @@ pipeline {
       AWS_CRED = 'cloud_user'
       AWS_REGION = 'us-east-1'
       s3BucketName = 'springboot-demo'
+      dockerUsrn = 'darrs08'
+      dockerContainer = 'ledger-service'
+      dockerCred = 'dockerhub'
   }
   tools {
     maven 'mvn-version'
@@ -22,14 +25,14 @@ pipeline {
             steps {
                  script {
                     step.buildNum()
-                    step.buildImage("darrs08", "ledger-service")
+                   step.buildImage("${dockerUsrn}", "${dockerContainer}")
                 }
             }
         }
         stage("Push image to Docker") {
              steps {
                 script {
-                    step.pushImage("dockerhub")
+                  step.pushImage("${dockerCred}")
                   }
               }
           }
