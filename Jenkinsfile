@@ -19,8 +19,7 @@ pipeline {
                  mavenPackage()
                }
            }
-       }
-    
+       }    
         stage("Build image") {
             steps {
                  script {
