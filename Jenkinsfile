@@ -35,7 +35,7 @@ pipeline {
           }
          stage("Push to s3") {
              steps {
-               uploadFilesToS3(s3Bucket: "${s3Bucket}")
+               uploadFilesToS3(s3Bucket: "${s3BucketName}")
               }
           }
      }
